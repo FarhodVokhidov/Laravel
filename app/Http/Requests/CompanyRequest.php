@@ -43,6 +43,7 @@ class CompanyRequest extends FormRequest
             'text.required'=>'Текстовое поле обязательно.',
             'phone.required'=>'The phone field is required.',
             'name.numeric'=>'Телефон должен быть номером',
+            'phone.unique'=>'Такой номер уже существует',
         ];
     }
 }

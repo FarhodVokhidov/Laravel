@@ -12,7 +12,7 @@ class CompanyController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
@@ -25,7 +25,7 @@ class CompanyController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -36,19 +36,13 @@ class CompanyController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      *
      */
 
     public function store(CompanyRequest $request)
     {
-        $comapny = Company::create($request->all());
-//        $company = new Company;
-//        $company->name = $request['name'];
-//        $company->text = $request['text'];
-//        $company->title = $request['title'];
-//        $company->phone = $request['phone'];
-//        $company->save();
+        Company::create($request->all());
         return redirect()->route('companies.index');
     }
 
@@ -56,22 +50,26 @@ class CompanyController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function show($id)
+    public function show(Company $company)
     {
-        //
+        return view('companies.show',[
+            'company'=>$company
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit($id)
+    public function edit(Company $company)
     {
-        //
+        return view('companies.edit',[
+            'company'=>$company
+        ]);
     }
 
     /**
@@ -79,11 +77,12 @@ class CompanyController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(CompanyRequest $request, Company $company)
     {
-        //
+        $company->update($request->all());
+        return redirect()->route('companies.index');
     }
 
     /**
@@ -94,6 +93,6 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }
