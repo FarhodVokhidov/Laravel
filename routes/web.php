@@ -14,6 +14,6 @@ use \App\Http\Controllers\CompanyController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->name('home');
 });
 Route::resource('companies',CompanyController::class);

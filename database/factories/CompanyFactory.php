@@ -23,6 +23,7 @@ class CompanyFactory extends Factory
             'name'=>$this->faker->company,
             'title'=>$this->faker->title,
             'text'=>$this->faker->text,
+            'phone'=>$this->faker->e164PhoneNumber,
         ];
     }
 }

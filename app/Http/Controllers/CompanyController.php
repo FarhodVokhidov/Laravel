@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\CompanyRequest;
 
 class CompanyController extends Controller
 {
@@ -27,7 +29,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('companies.create');
     }
 
     /**
@@ -35,10 +37,12 @@ class CompanyController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     *
      */
-    public function store(Request $request)
+
+    public function store(CompanyRequest $request)
     {
-        //
+        dd($request);
     }
 
     /**
