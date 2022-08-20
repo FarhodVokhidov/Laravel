@@ -16,7 +16,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::paginate(20);
+        $companies = Company::orderByDesc('id')->paginate(20);
         return view('companies.index', [
             'companies' => $companies
         ]);
@@ -42,7 +42,14 @@ class CompanyController extends Controller
 
     public function store(CompanyRequest $request)
     {
-        dd($request);
+        $comapny = Company::create($request->all());
+//        $company = new Company;
+//        $company->name = $request['name'];
+//        $company->text = $request['text'];
+//        $company->title = $request['title'];
+//        $company->phone = $request['phone'];
+//        $company->save();
+        return redirect()->route('companies.index');
     }
 
     /**

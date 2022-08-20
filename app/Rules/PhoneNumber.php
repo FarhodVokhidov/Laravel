@@ -25,7 +25,7 @@ class PhoneNumber implements Rule
      */
     public function passes($attribute, $value)
     {
-        return substr($value, 0, 1) == '+' && strlen($value) == 14;
+        return substr($value, 0, 1) == '+' && strlen($value) == 13;
     }
 
     /**
@@ -35,6 +35,6 @@ class PhoneNumber implements Rule
      */
     public function message()
     {
-        return 'Telefon raqam + bilan bowlaniwi kere exp:+998*********';
+        return 'номер телефона должен содержать 13 цифр и начинается с +  (пример: +998** *** ** **)';
     }
 }

@@ -11,11 +11,11 @@
     <table class="table table-dark table-striped-columns">
         <thead>
         <tr>
-            <td>T/R</td>
-            <td>Name</td>
-            <td>title</td>
-            <td>text</td>
-            <td>Phone</td>
+            <th>T/R</th>
+            <th>Name</th>
+            <th>title</th>
+            <th>text</th>
+            <th>Phone</th>
         </tr>
         </thead>
         <tbody>

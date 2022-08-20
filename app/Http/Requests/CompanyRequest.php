@@ -34,7 +34,15 @@ class CompanyRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.string'=>'Введите строки'
+            'name.regex'=>'Недопустимый формат имени.',
+            'name.required'=>'Имя должно быть строкой.',
+            'text.min'=>'Текст должен быть не менее 10 символов.',
+            'title.min'=>'Название должно быть не менее 10 символов.',
+            'title.max'=>'Название должно быть не Болше 255 символов.',
+            'title.required'=>'Название поле обязательно.',
+            'text.required'=>'Текстовое поле обязательно.',
+            'phone.required'=>'The phone field is required.',
+            'name.numeric'=>'Телефон должен быть номером',
         ];
     }
 }

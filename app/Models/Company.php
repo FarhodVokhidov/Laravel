@@ -9,16 +9,5 @@ class Company extends Model
 {
     use HasFactory;
 
-    //custom primary key
-    protected $primaryKey ='company_id';
-    //incrementing
-
-    public $incrementing = false;
-    // timestamps
-    public $timestamps = false;
-    // artributes
-
-    public $attributes = [
-
-    ];
+    protected  $fillable = ['name','title','text','phone'];
 }
